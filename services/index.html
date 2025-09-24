@@ -1,78 +1,109 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Serviços | Indra18s</title>
-    <link rel="stylesheet" href="/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --bg-main: #0d1117;
+            --bg-card: #161b22;
+            --text-main: #c9d1d9;
+            --text-accent: #58a6ff;
+            --border: #30363d;
+            --shadow: 0 4px 24px rgba(0, 0, 0, 0.7);
+        }
+
         body {
-            font-family: 'Segoe UI', Arial, sans-serif;
-            background: #f7f7fa;
             margin: 0;
-            color: #222;
+            font-family: 'Roboto', Arial, sans-serif;
+            background: var(--bg-main);
+            color: var(--text-main);
+            min-height: 100vh;
         }
 
         header {
-            background: #232946;
-            color: #fff;
-            padding: 1.5rem 0;
+            background: var(--bg-card);
+            border-bottom: 1px solid var(--border);
+            box-shadow: var(--shadow);
+            padding: 32px 0 24px 0;
             text-align: center;
         }
 
+        header h1 {
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: var(--text-accent);
+            margin: 0;
+            letter-spacing: 2px;
+        }
+
         nav {
-            margin-top: 1rem;
+            margin-top: 18px;
         }
 
         nav a {
-            color: #fff;
+            color: var(--text-main);
             text-decoration: none;
-            margin: 0 1rem;
+            margin: 0 18px;
             font-weight: 500;
+            transition: color 0.2s;
         }
 
         nav a:hover {
-            text-decoration: underline;
+            color: var(--text-accent);
         }
 
         main {
             max-width: 900px;
-            margin: 2rem auto;
-            background: #fff;
+            margin: 40px auto;
+            padding: 0 24px;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
             border-radius: 12px;
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
-            padding: 2rem;
+            box-shadow: var(--shadow);
+            padding: 32px;
+            margin-bottom: 32px;
+            transition: transform 0.2s;
         }
 
-        h1 {
+        .card:hover {
+            transform: translateY(-4px) scale(1.02);
+            border-color: var(--text-accent);
+        }
+
+        .card h2 {
+            color: var(--text-accent);
             margin-top: 0;
-            font-size: 2.2rem;
-            color: #232946;
+            font-size: 1.5rem;
         }
 
-        .servico {
-            margin-bottom: 2rem;
-        }
-
-        .servico h2 {
-            font-size: 1.3rem;
-            color: #232946;
-            margin-bottom: 0.5rem;
-        }
-
-        .servico ul {
+        .card ul {
             margin: 0;
             padding-left: 1.2rem;
         }
 
-        .servico li {
+        .card li {
             margin-bottom: 0.4rem;
+            font-size: 1.08rem;
         }
 
         @media (max-width: 600px) {
+            header h1 {
+                font-size: 1.5rem;
+            }
+
             main {
-                padding: 1rem;
+                padding: 0 8px;
+            }
+
+            .card {
+                padding: 18px;
             }
         }
     </style>
@@ -88,7 +119,7 @@
         </nav>
     </header>
     <main>
-        <div class="servico">
+        <div class="card">
             <h2>1️⃣ Suporte Técnico / TI</h2>
             <ul>
                 <li>Configuração de computadores</li>
@@ -97,39 +128,29 @@
                 <li>Backup e recuperação de dados</li>
                 <li>Manutenção de sistemas operacionais (Windows, Linux)</li>
                 <li>Otimização de desempenho de PCs e notebooks</li>
-                <li>Suporte remoto via TeamViewer, AnyDesk ou Discord</li>
-                <li>Configuração de redes domésticas (Wi-Fi, roteadores, compartilhamento)</li>
+                <li>Suporte remoto via Discord</li>
             </ul>
         </div>
-        <div class="servico">
+        <div class="card">
             <h2>2️⃣ Programação / Desenvolvimento</h2>
             <ul>
                 <li>Criação de sites e landing pages (HTML, CSS, JavaScript)</li>
-                <li>Desenvolvimento de sites com WordPress</li>
                 <li>Criação de bots para Discord, Telegram ou WhatsApp</li>
                 <li>Automação de tarefas (scripts em Python, JavaScript, etc.)</li>
                 <li>Pequenas ferramentas ou softwares personalizados</li>
                 <li>Integração de APIs (ex: Telegram, Discord, Google Sheets)</li>
             </ul>
         </div>
-        <div class="servico">
-            <h2>3️⃣ Design / Digital</h2>
-            <ul>
-                <li>Design de banners, logos e artes digitais</li>
-                <li>Edição de imagens e vídeos</li>
-                <li>Criação de interfaces simples (UI/UX)</li>
-            </ul>
-        </div>
-        <div class="servico">
-            <h2>4️⃣ Consultoria / Treinamento</h2>
+        <div class="card">
+            <h2>3️⃣ Consultoria / Treinamento</h2>
             <ul>
                 <li>Aulas ou tutoria de informática básica ou avançada</li>
                 <li>Treinamento para uso de softwares (Excel, Photoshop, Minecraft mods, etc.)</li>
                 <li>Consultoria de TI para pequenas empresas (organização de computadores, backups, segurança)</li>
             </ul>
         </div>
-        <div class="servico">
-            <h2>5️⃣ Segurança / Redes</h2>
+        <div class="card">
+            <h2>4️⃣ Segurança / Redes</h2>
             <ul>
                 <li>Configuração de antivírus e firewalls</li>
                 <li>Proteção de contas e dados online</li>
