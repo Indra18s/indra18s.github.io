@@ -151,8 +151,15 @@
         </div>
     </main>
     <footer>
-        &copy; 2024 Indra18s Services. Todos os direitos reservados.
+        &copy; 2025 Indra18s Services. Todos os direitos reservados.
     </footer>
 </body>
 
 </html>
+<script>
+    document.querySelectorAll('nav a').forEach(link => {
+        if (link.textContent === 'Serviços') link.href = '/services';
+        if (link.textContent === 'Sobre') link.href = '/sobre';
+        if (link.textContent === 'Contato') link.href = '/contato';
+    });
+</script>
