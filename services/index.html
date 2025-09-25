@@ -116,7 +116,8 @@
             opacity: 0;
         }
 
-        .card li.show-valor .valor {
+        .card li.show-valor .valor,
+        .card.show-all .valor {
             display: inline-block;
             opacity: 1;
         }
@@ -244,6 +245,17 @@
             });
             li.addEventListener('mouseleave', () => {
                 li.classList.remove('show-valor');
+            });
+        });
+
+        // Mostra todos os valores do card ao passar mouse no título
+        document.querySelectorAll('.card').forEach(card => {
+            const h2 = card.querySelector('h2');
+            h2.addEventListener('mouseenter', () => {
+                card.classList.add('show-all');
+            });
+            h2.addEventListener('mouseleave', () => {
+                card.classList.remove('show-all');
             });
         });
     </script>
