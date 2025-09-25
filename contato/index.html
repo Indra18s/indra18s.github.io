@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato | Indra18s</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #0d1117;
+            --bg-card: #161b22;
+            --text-main: #c9d1d9;
+            --text-accent: #58a6ff;
+            --border: #30363d;
+            --shadow: 0 4px 24px rgba(0, 0, 0, 0.7);
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Roboto', Arial, sans-serif;
+            background: var(--bg-main);
+            color: var(--text-main);
+            min-height: 100vh;
+        }
+
+        header {
+            background: var(--bg-card);
+            border-bottom: 1px solid var(--border);
+            box-shadow: var(--shadow);
+            padding: 32px 0 24px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: var(--text-accent);
+            margin: 0;
+            letter-spacing: 2px;
+        }
+
+        nav {
+            margin-top: 18px;
+        }
+
+        nav a {
+            color: var(--text-main);
+            text-decoration: none;
+            margin: 0 18px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--text-accent);
+        }
+
+        main {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 24px;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            padding: 32px;
+            margin-bottom: 32px;
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px) scale(1.02);
+            border-color: var(--text-accent);
+        }
+
+        .card h2 {
+            color: var(--text-accent);
+            margin-top: 0;
+            font-size: 2rem;
+        }
+
+        .contato-lista {
+            list-style: none;
+            padding: 0;
+            margin: 24px 0 0 0;
+        }
+
+        .contato-lista li {
+            font-size: 1.15rem;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+        }
+
+        .contato-lista span {
+            font-weight: 700;
+            color: var(--text-accent);
+            margin-right: 10px;
+        }
+
+        .contato-lista a {
+            color: var(--text-accent);
+            text-decoration: none;
+            word-break: break-all;
+        }
+
+        .contato-lista a:hover {
+            text-decoration: underline;
+        }
+
+        .card p {
+            font-size: 1.08rem;
+            margin-bottom: 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 24px 0;
+            color: #6e7681;
+            font-size: 1rem;
+            border-top: 1px solid var(--border);
+            background: var(--bg-card);
+            margin-top: 48px;
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 1.5rem;
+            }
+
+            main {
+                padding: 0 8px;
+            }
+
+            .card {
+                padding: 18px;
+            }
+
+            .card h2 {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Contato</h1>
+        <nav>
+            <a href="/">Início</a>
+            <a href="/services/">Serviços</a>
+            <a href="/sobre/">Sobre</a>
+            <a href="/contato/">Contato</a>
+        </nav>
+    </header>
+    <main>
+        <div class="card">
+            <h2>Fale comigo!</h2>
+            <p>
+                Para dúvidas, orçamentos ou sugestões, entre em contato pelos canais abaixo. Responderei o mais rápido
+                possível!
+            </p>
+            <ul class="contato-lista">
+                <li>
+                    <span>Discord:</span> indra132jd
+                </li>
+                <li>
+                    <span>Email:</span>
+                    <a href="mailto:contato.indra132jd@gmail.com">contato.indra132jd@gmail.com</a>
+                </li>
+            </ul>
+            <p>
+                Sinta-se à vontade para enviar sua mensagem. Estou sempre disponível para ajudar!
+            </p>
+        </div>
+    </main>
+    <footer>
+        &copy; 2025 Indra18s Services. Todos os direitos reservados.
+    </footer>
+</body>
+
+</html>
