@@ -14,7 +14,6 @@
             --text-accent: #58a6ff;
             --border: #30363d;
             --shadow: 0 4px 24px rgba(0, 0, 0, 0.7);
-            --gradient-hover: linear-gradient(135deg, #58a6ff 0%, #161b22 100%);
         }
 
         body {
@@ -70,15 +69,9 @@
             box-shadow: var(--shadow);
             padding: 32px;
             margin-bottom: 32px;
-            transition: background 0.4s, border-color 0.2s;
+            transition: border-color 0.2s;
             position: relative;
             overflow: hidden;
-        }
-
-        .card:hover,
-        .card.show-all {
-            background: var(--gradient-hover);
-            border-color: var(--text-accent);
         }
 
         .card h2 {
@@ -105,8 +98,18 @@
             cursor: pointer;
         }
 
+        .valor,
+        .seta {
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .card li.show-valor .valor,
+        .card li.show-valor .seta {
+            opacity: 1;
+        }
+
         .valor {
-            display: none;
             position: absolute;
             right: 0;
             top: 0;
@@ -117,14 +120,30 @@
             font-size: 1rem;
             font-weight: 700;
             margin-left: 12px;
-            transition: opacity 0.3s;
             z-index: 2;
+            white-space: nowrap;
         }
 
-        .card li.show-valor .valor,
-        .card.show-all .valor {
+        .seta {
+            position: absolute;
+            right: 90px;
+            top: 12px;
+            width: 40px;
+            height: 0;
+            border-top: 2px solid #58a6ff;
+            /* linha */
+        }
+
+        .seta::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: -5px;
+            border: solid #58a6ff;
+            border-width: 0 3px 3px 0;
             display: inline-block;
-            opacity: 1;
+            padding: 6px;
+            transform: rotate(-45deg);
         }
 
         footer {
@@ -149,6 +168,11 @@
             .card {
                 padding: 18px;
             }
+
+            .seta {
+                right: 60px;
+                width: 25px;
+            }
         }
     </style>
 </head>
@@ -167,43 +191,93 @@
         <div class="card" id="card1">
             <h2>1️⃣ Suporte Técnico / TI</h2>
             <ul>
-                <li>Configuração de computadores <span class="valor">R$20</span></li>
-                <li>Atualização e instalação de drivers <span class="valor">R$10 por PC</span></li>
-                <li>Instalação e configuração de softwares <span class="valor">R$15 por software</span></li>
-                <li>Backup e recuperação de dados <span class="valor">R$20 por sessão</span></li>
-                <li>Manutenção de sistemas operacionais (Windows/Linux) <span class="valor">R$30</span></li>
-                <li>Otimização de desempenho de PCs e notebooks <span class="valor">R$15</span></li>
-                <li>Suporte remoto via Discord <span class="valor">R$15/hora</span></li>
+                <li>Configuração de computadores
+                    <span class="seta"></span>
+                    <span class="valor">R$20</span>
+                </li>
+                <li>Atualização e instalação de drivers
+                    <span class="seta"></span>
+                    <span class="valor">R$10 por PC</span>
+                </li>
+                <li>Instalação e configuração de softwares
+                    <span class="seta"></span>
+                    <span class="valor">R$15 por software</span>
+                </li>
+                <li>Backup e recuperação de dados
+                    <span class="seta"></span>
+                    <span class="valor">R$20 por sessão</span>
+                </li>
+                <li>Manutenção de sistemas operacionais (Windows/Linux)
+                    <span class="seta"></span>
+                    <span class="valor">R$30</span>
+                </li>
+                <li>Otimização de desempenho de PCs e notebooks
+                    <span class="seta"></span>
+                    <span class="valor">R$15</span>
+                </li>
+                <li>Suporte remoto via Discord
+                    <span class="seta"></span>
+                    <span class="valor">R$15/hora</span>
+                </li>
             </ul>
         </div>
         <div class="card" id="card2">
             <h2>2️⃣ Programação / Desenvolvimento</h2>
             <ul>
-                <li>Criação de sites e landing pages (HTML, CSS, JavaScript) <span class="valor">R$50 (site
-                        simples)</span></li>
-                <li>Criação de bots para Discord, Telegram ou WhatsApp <span class="valor">R$20 por bot básico</span>
+                <li>Criação de sites e landing pages (HTML, CSS, JavaScript)
+                    <span class="seta"></span>
+                    <span class="valor">R$50 (site simples)</span>
                 </li>
-                <li>Automação de tarefas (scripts em Python, JavaScript, etc.) <span class="valor">R$10 por script
-                        simples</span></li>
-                <li>Pequenas ferramentas ou softwares personalizados <span class="valor">R$30 a R$50</span></li>
-                <li>Integração de APIs <span class="valor">R$15 por integração simples</span></li>
+                <li>Criação de bots para Discord, Telegram ou WhatsApp
+                    <span class="seta"></span>
+                    <span class="valor">R$20 por bot básico</span>
+                </li>
+                <li>Automação de tarefas (scripts em Python, JavaScript, etc.)
+                    <span class="seta"></span>
+                    <span class="valor">R$10 por script simples</span>
+                </li>
+                <li>Pequenas ferramentas ou softwares personalizados
+                    <span class="seta"></span>
+                    <span class="valor">R$30 a R$50</span>
+                </li>
+                <li>Integração de APIs
+                    <span class="seta"></span>
+                    <span class="valor">R$15 por integração simples</span>
+                </li>
             </ul>
         </div>
         <div class="card" id="card3">
             <h2>3️⃣ Consultoria / Treinamento</h2>
             <ul>
-                <li>Aulas e tutoria de informática <span class="valor">R$15/hora</span></li>
-                <li>Treinamento em softwares (Excel, Photoshop, Minecraft mods, etc.) <span
-                        class="valor">R$20/hora</span></li>
-                <li>Consultoria de TI para pequenas empresas <span class="valor">R$25/hora</span></li>
+                <li>Aulas e tutoria de informática
+                    <span class="seta"></span>
+                    <span class="valor">R$15/hora</span>
+                </li>
+                <li>Treinamento em softwares (Excel, Photoshop, Minecraft mods, etc.)
+                    <span class="seta"></span>
+                    <span class="valor">R$20/hora</span>
+                </li>
+                <li>Consultoria de TI para pequenas empresas
+                    <span class="seta"></span>
+                    <span class="valor">R$25/hora</span>
+                </li>
             </ul>
         </div>
         <div class="card" id="card4">
             <h2>4️⃣ Segurança / Redes</h2>
             <ul>
-                <li>Configuração de antivírus e firewalls <span class="valor">R$10</span></li>
-                <li>Proteção de contas e dados online <span class="valor">R$15</span></li>
-                <li>Consultoria de segurança digital básica <span class="valor">R$20/hora</span></li>
+                <li>Configuração de antivírus e firewalls
+                    <span class="seta"></span>
+                    <span class="valor">R$10</span>
+                </li>
+                <li>Proteção de contas e dados online
+                    <span class="seta"></span>
+                    <span class="valor">R$15</span>
+                </li>
+                <li>Consultoria de segurança digital básica
+                    <span class="seta"></span>
+                    <span class="valor">R$20/hora</span>
+                </li>
             </ul>
         </div>
     </main>
@@ -211,24 +285,13 @@
         &copy; 2025 Indra18s Services. Todos os direitos reservados.
     </footer>
     <script>
-        // Mostra valor ao passar mouse em cada serviço ou em todo o card (tópico)
-        document.querySelectorAll('.card').forEach(card => {
-            // Mostrar todos valores ao passar mouse no título
-            card.querySelector('h2').addEventListener('mouseenter', () => {
-                card.classList.add('show-all');
+        // Mostra valor e seta ao passar mouse em cada serviço
+        document.querySelectorAll('.card li').forEach(li => {
+            li.addEventListener('mouseenter', () => {
+                li.classList.add('show-valor');
             });
-            card.querySelector('h2').addEventListener('mouseleave', () => {
-                card.classList.remove('show-all');
-            });
-
-            // Mostrar valor individual ao passar mouse em cada li
-            card.querySelectorAll('li').forEach(li => {
-                li.addEventListener('mouseenter', () => {
-                    li.classList.add('show-valor');
-                });
-                li.addEventListener('mouseleave', () => {
-                    li.classList.remove('show-valor');
-                });
+            li.addEventListener('mouseleave', () => {
+                li.classList.remove('show-valor');
             });
         });
     </script>
