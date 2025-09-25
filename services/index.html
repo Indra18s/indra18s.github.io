@@ -14,6 +14,7 @@
             --text-accent: #58a6ff;
             --border: #30363d;
             --shadow: 0 4px 24px rgba(0, 0, 0, 0.7);
+            --gradient-hover: linear-gradient(135deg, #58a6ff 0%, #161b22 100%);
         }
 
         body {
@@ -69,11 +70,14 @@
             box-shadow: var(--shadow);
             padding: 32px;
             margin-bottom: 32px;
-            transition: transform 0.2s;
+            transition: background 0.4s, border-color 0.2s;
+            position: relative;
+            overflow: hidden;
         }
 
-        .card:hover {
-            transform: translateY(-4px) scale(1.02);
+        .card:hover,
+        .card.show-all {
+            background: var(--gradient-hover);
             border-color: var(--text-accent);
         }
 
@@ -81,6 +85,12 @@
             color: var(--text-accent);
             margin-top: 0;
             font-size: 1.5rem;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .card h2:hover {
+            color: #fff;
         }
 
         .card ul {
@@ -91,6 +101,30 @@
         .card li {
             margin-bottom: 0.4rem;
             font-size: 1.08rem;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .valor {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 0;
+            background: rgba(40, 60, 100, 0.85);
+            color: #fff;
+            padding: 2px 12px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 700;
+            margin-left: 12px;
+            transition: opacity 0.3s;
+            z-index: 2;
+        }
+
+        .card li.show-valor .valor,
+        .card.show-all .valor {
+            display: inline-block;
+            opacity: 1;
         }
 
         footer {
@@ -130,48 +164,74 @@
         </nav>
     </header>
     <main>
-        <div class="card">
+        <div class="card" id="card1">
             <h2>1️⃣ Suporte Técnico / TI</h2>
             <ul>
-                <li>Configuração de computadores</li>
-                <li>Atualização e instalação de drivers</li>
-                <li>Instalação e configuração de softwares</li>
-                <li>Backup e recuperação de dados</li>
-                <li>Manutenção de sistemas operacionais (Windows, Linux)</li>
-                <li>Otimização de desempenho de PCs e notebooks</li>
-                <li>Suporte remoto via Discord</li>
+                <li>Configuração de computadores <span class="valor">R$20</span></li>
+                <li>Atualização e instalação de drivers <span class="valor">R$10 por PC</span></li>
+                <li>Instalação e configuração de softwares <span class="valor">R$15 por software</span></li>
+                <li>Backup e recuperação de dados <span class="valor">R$20 por sessão</span></li>
+                <li>Manutenção de sistemas operacionais (Windows/Linux) <span class="valor">R$30</span></li>
+                <li>Otimização de desempenho de PCs e notebooks <span class="valor">R$15</span></li>
+                <li>Suporte remoto via Discord <span class="valor">R$15/hora</span></li>
             </ul>
         </div>
-        <div class="card">
+        <div class="card" id="card2">
             <h2>2️⃣ Programação / Desenvolvimento</h2>
             <ul>
-                <li>Criação de sites e landing pages (HTML, CSS, JavaScript)</li>
-                <li>Criação de bots para Discord, Telegram ou WhatsApp</li>
-                <li>Automação de tarefas (scripts em Python, JavaScript, etc.)</li>
-                <li>Pequenas ferramentas ou softwares personalizados</li>
-                <li>Integração de APIs (ex: Telegram, Discord, Google Sheets)</li>
+                <li>Criação de sites e landing pages (HTML, CSS, JavaScript) <span class="valor">R$50 (site
+                        simples)</span></li>
+                <li>Criação de bots para Discord, Telegram ou WhatsApp <span class="valor">R$20 por bot básico</span>
+                </li>
+                <li>Automação de tarefas (scripts em Python, JavaScript, etc.) <span class="valor">R$10 por script
+                        simples</span></li>
+                <li>Pequenas ferramentas ou softwares personalizados <span class="valor">R$30 a R$50</span></li>
+                <li>Integração de APIs <span class="valor">R$15 por integração simples</span></li>
             </ul>
         </div>
-        <div class="card">
+        <div class="card" id="card3">
             <h2>3️⃣ Consultoria / Treinamento</h2>
             <ul>
-                <li>Aulas ou tutoria de informática básica ou avançada</li>
-                <li>Treinamento para uso de softwares (Excel, Photoshop, Minecraft mods, etc.)</li>
-                <li>Consultoria de TI para pequenas empresas (organização de computadores, backups, segurança)</li>
+                <li>Aulas e tutoria de informática <span class="valor">R$15/hora</span></li>
+                <li>Treinamento em softwares (Excel, Photoshop, Minecraft mods, etc.) <span
+                        class="valor">R$20/hora</span></li>
+                <li>Consultoria de TI para pequenas empresas <span class="valor">R$25/hora</span></li>
             </ul>
         </div>
-        <div class="card">
+        <div class="card" id="card4">
             <h2>4️⃣ Segurança / Redes</h2>
             <ul>
-                <li>Configuração de antivírus e firewalls</li>
-                <li>Proteção de contas e dados online</li>
-                <li>Consultoria de segurança digital básica</li>
+                <li>Configuração de antivírus e firewalls <span class="valor">R$10</span></li>
+                <li>Proteção de contas e dados online <span class="valor">R$15</span></li>
+                <li>Consultoria de segurança digital básica <span class="valor">R$20/hora</span></li>
             </ul>
         </div>
     </main>
     <footer>
         &copy; 2025 Indra18s Services. Todos os direitos reservados.
     </footer>
+    <script>
+        // Mostra valor ao passar mouse em cada serviço ou em todo o card (tópico)
+        document.querySelectorAll('.card').forEach(card => {
+            // Mostrar todos valores ao passar mouse no título
+            card.querySelector('h2').addEventListener('mouseenter', () => {
+                card.classList.add('show-all');
+            });
+            card.querySelector('h2').addEventListener('mouseleave', () => {
+                card.classList.remove('show-all');
+            });
+
+            // Mostrar valor individual ao passar mouse em cada li
+            card.querySelectorAll('li').forEach(li => {
+                li.addEventListener('mouseenter', () => {
+                    li.classList.add('show-valor');
+                });
+                li.addEventListener('mouseleave', () => {
+                    li.classList.remove('show-valor');
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
