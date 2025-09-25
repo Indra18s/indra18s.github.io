@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre | Indra18s</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #0d1117;
+            --bg-card: #161b22;
+            --text-main: #c9d1d9;
+            --text-accent: #58a6ff;
+            --border: #30363d;
+            --shadow: 0 4px 24px rgba(0, 0, 0, 0.7);
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Roboto', Arial, sans-serif;
+            background: var(--bg-main);
+            color: var(--text-main);
+            min-height: 100vh;
+        }
+
+        header {
+            background: var(--bg-card);
+            border-bottom: 1px solid var(--border);
+            box-shadow: var(--shadow);
+            padding: 32px 0 24px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: var(--text-accent);
+            margin: 0;
+            letter-spacing: 2px;
+        }
+
+        nav {
+            margin-top: 18px;
+        }
+
+        nav a {
+            color: var(--text-main);
+            text-decoration: none;
+            margin: 0 18px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--text-accent);
+        }
+
+        main {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 24px;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            padding: 32px;
+            margin-bottom: 32px;
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px) scale(1.02);
+            border-color: var(--text-accent);
+        }
+
+        .card h2 {
+            color: var(--text-accent);
+            margin-top: 0;
+            font-size: 2rem;
+        }
+
+        .card ul {
+            margin: 0 0 18px 0;
+            padding-left: 1.2rem;
+        }
+
+        .card li {
+            margin-bottom: 0.4rem;
+            font-size: 1.08rem;
+        }
+
+        .missao {
+            font-size: 1.15rem;
+            margin: 18px 0;
+            color: var(--text-accent);
+            font-weight: 500;
+        }
+
+        footer {
+            text-align: center;
+            padding: 24px 0;
+            color: #6e7681;
+            font-size: 1rem;
+            border-top: 1px solid var(--border);
+            background: var(--bg-card);
+            margin-top: 48px;
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 1.5rem;
+            }
+
+            main {
+                padding: 0 8px;
+            }
+
+            .card {
+                padding: 18px;
+            }
+
+            .card h2 {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Sobre Mim</h1>
+        <nav>
+            <a href="/">Início</a>
+            <a href="/services/">Serviços</a>
+            <a href="/sobre/">Sobre</a>
+            <a href="/contato/">Contato</a>
+        </nav>
+    </header>
+    <main>
+        <div class="card">
+            <h2>Olá! Eu sou o Bryan (Indra)</h2>
+            <p>
+                Jovem apaixonado por tecnologia, programação e inovação digital. Desde cedo me envolvo com computadores,
+                jogos e desenvolvimento de ferramentas, sempre buscando aprender mais e criar soluções práticas.
+            </p>
+            <h2>Atualmente, trabalho com:</h2>
+            <ul>
+                <li>Criação de bots para Discord, Telegram e automações personalizadas</li>
+                <li>Desenvolvimento de sites simples e profissionais</li>
+                <li>Suporte técnico em computadores, softwares e redes</li>
+                <li>Automação de tarefas e pequenos scripts para facilitar processos</li>
+            </ul>
+            <div class="missao">
+                💡 Minha missão é transformar ideias em soluções digitais funcionais, oferecendo serviços confiáveis,
+                rápidos e de qualidade.
+            </div>
+            <h2>Mais sobre mim</h2>
+            <ul>
+                <li>Exploro novas ferramentas, mods de jogos e técnicas de automação</li>
+                <li>Busco sempre aprimorar meus conhecimentos</li>
+                <li>Gosto de ajudar pessoas com tecnologia</li>
+            </ul>
+            <p>
+                Seja para criar um bot, desenvolver um site ou resolver problemas de TI, estou pronto para te ajudar a
+                alcançar seus objetivos com tecnologia!
+            </p>
+        </div>
+    </main>
+    <footer>
+        &copy; 2025 Indra18s Services. Todos os direitos reservados.
+    </footer>
+</body>
+
+</html>
